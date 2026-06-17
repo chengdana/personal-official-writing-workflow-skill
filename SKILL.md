@@ -38,47 +38,56 @@ Load these only when the task reaches the matching stage. If the user's AI tool 
 
 ## Recommended Project Folder
 
-When the user has no existing folder, suggest this structure:
+When the user has no existing folder, suggest a beginner-friendly Chinese folder setup instead of an English technical tree:
 
 ```text
-official-writing-project/
-├── samples/
-│   ├── communications/
-│   ├── work-summaries/
-│   ├── reports/
-│   ├── notices/
-│   ├── speeches/
-│   └── research-reports/
-├── edits/
-│   ├── ai-drafts/
-│   └── user-edited/
-├── profiles/
-│   ├── style-profile-official.md
-│   ├── style-profile-communication.md
-│   ├── style-profile-summary-report.md
-│   └── forbidden-patterns.md
-├── source-materials/
-│   └── current-task/
-└── outputs/
+D盘 / 程大拿写作
 ```
 
-Keep genres separate. Do not mix a newsletter-style communication, a work summary, a formal report, and a speech into one undifferentiated profile unless the user explicitly wants a rough starter profile.
+Inside the project folder, create genre folders such as:
+
+```text
+活动通讯稿
+年度工作总结
+向上级汇报材料
+工作通知
+领导讲话稿
+调研报告
+```
+
+Inside each genre folder, suggest three simple subfolders:
+
+```text
+我写过的定稿
+AI初稿
+我修改后的版本
+```
+
+For AI draft vs user-edited pairs, ask the user to keep matching sequence numbers or titles:
+
+```text
+001-支行客户活动通讯稿-AI初稿.docx
+001-支行客户活动通讯稿-我修改后.docx
+```
+
+Same number means the two files belong to the same writing task. These paired files are the highest-value training material because they reveal what the user changed, deleted, strengthened, or softened. Keep genres separate. Do not mix a newsletter-style communication, a work summary, a formal report, and a speech into one undifferentiated profile unless the user explicitly wants a rough starter profile.
 
 ## Workflow
 
 1. **Set up samples**
-   - Ask the user to place their own completed materials into the matching `samples/` folders.
+   - Ask the user to place their own completed materials into the matching genre folder, then into `我写过的定稿`.
    - Prefer 5-20 samples per genre. With 3-5 samples, mark confidence as starter-level.
-   - Put AI draft vs user-edited pairs into `edits/`; these are the highest-value training material.
+   - Put AI draft vs user-edited pairs into `AI初稿` and `我修改后的版本`, using the same sequence number or title for both files.
+   - When paired files exist, compare the AI draft against the user-edited version before summarizing style.
 
 2. **Train style by scenario**
    - Use `learning-personal-writing-style`.
-   - Build one profile per scenario when possible: communications, summaries/reports, speeches, research reports, notices.
-   - Output `style-profile-*.md`, forbidden patterns, reusable outlines, and confidence.
+   - Build one style note per scenario when possible: communications, summaries/reports, speeches, research reports, notices.
+   - Output beginner-facing files such as `通讯稿风格说明.md`, forbidden patterns, reusable outlines, and confidence.
 
 3. **Draft from a real writing request**
    - Ask for the writing goal, document type if known, recipient/reader, source facts, must-keep wording, length, and deadline.
-   - Use the closest style profile to draft the first version.
+   - Use the closest style note to draft the first version.
    - Preserve facts and mark missing information with `[待补充]`.
 
 4. **Run the official-material pass**
@@ -100,7 +109,7 @@ Before drafting, collect:
 读者/接收对象：
 必须保留的事实：
 参考素材：
-希望接近的个人风格 profile：
+希望接近的个人风格说明：
 篇幅：
 不能写的内容：
 ```
