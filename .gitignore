@@ -1,0 +1,12 @@
+.env
+.env.*
+*.log
+__pycache__/
+.DS_Store
+Thumbs.db
+node_modules/
+data/
+logs/
+*.token
+*.cookie
+storage_state.json
