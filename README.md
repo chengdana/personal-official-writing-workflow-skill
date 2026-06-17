@@ -1,11 +1,14 @@
-# Personal Official Writing Workflow Skill
+# Personal Official Writing Workflow Skill Pack
 
-一个面向中文办公、公文、通讯稿、总结报告、汇报材料写作的公开 Skill。
+一个面向中文办公、公文、通讯稿、总结报告、汇报材料写作的公开 Skill 包。
 
-它把两类能力串成一个轻量工作流：
+它不是只有一个“总控 Skill”，而是把三部分打包在一起：
 
-- 先用你自己的历史材料训练个人写作风格。
-- 再用公文/正式材料规范检查结构、语气、事实边界和格式。
+| 部分 | 作用 |
+|-|-|
+| `personal-official-writing-workflow` | 总控工作流：负责串联训练、起草、规范检查和回流学习 |
+| `learning-personal-writing-style` | 个人风格训练：从你自己的历史材料和改稿中提炼写作习惯 |
+| `drafting-official-materials` | 公文规范写作：检查正式材料的文种、结构、语气、事实边界和格式 |
 
 ## 适合谁
 
@@ -18,13 +21,13 @@
 在 Trae、Claude Code、Codex 等支持 Skills 的 AI 工具中，输入：
 
 ```text
-请安装该链接中的 Skill，确保适配我的平台的 Skill 安装规范：
+请安装该链接中的 Skill 包，确保同时安装里面的主 Skill 和两个子 Skill，并适配我的平台的 Skill 安装规范：
 https://github.com/chengdana/personal-official-writing-workflow-skill
 ```
 
 安装完成后，重启你的 AI 工具。
 
-之后可以通过 `/personal-official-writing-workflow` 调用这个 Skill。
+之后可以通过 `/personal-official-writing-workflow` 调用总控 Skill。
 
 如果你的平台不支持 `/` 调用，也可以直接输入：
 
@@ -48,13 +51,22 @@ personal-official-writing-workflow-skill/
 ├── SKILL.md
 ├── references/
 │   └── beginner-prompts.md
+├── skills/
+│   ├── learning-personal-writing-style/
+│   │   ├── SKILL.md
+│   │   ├── references/
+│   │   └── scripts/
+│   └── drafting-official-materials/
+│       ├── SKILL.md
+│       └── references/
 ├── README.md
 └── LICENSE
 ```
 
+如果你的 AI 工具只安装根目录的 `SKILL.md`，总控 Skill 也会提示它读取 `skills/` 里的两个子 Skill 文件；如果你的平台支持批量安装 Skill 包，则建议同时安装三个 Skill。
+
 ## 隐私提醒
 
-这个仓库只包含 Skill 工作流和提示词模板，不包含任何 API Key、账号密码、cookie、token 或个人材料样本。
+这个仓库只包含 Skill 工作流、参考文档和轻量脚本，不包含任何 API Key、账号密码、cookie、token 或个人材料样本。
 
 训练个人写作风格时，请只使用你自己有权使用的材料。涉及单位内部材料、敏感数据或未公开信息时，不要上传到公开仓库。
-
