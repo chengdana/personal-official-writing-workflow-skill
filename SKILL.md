@@ -87,8 +87,11 @@ Same number means the two files belong to the same writing task. These paired fi
 
 3. **Draft from a real writing request**
    - Ask for the writing goal, document type if known, recipient/reader, source facts, must-keep wording, length, and deadline.
+   - If the user is unsure about the document type or style note, do not require exact file names. Present a short choice list, infer the closest material type from the task, and ask the user to confirm.
+   - Accept reference material either pasted in chat or provided as a local file/folder path. If the path is provided, read the file before drafting; if the current platform cannot read local paths, ask the user to paste the needed content. If the material is insufficient, ask for the missing facts.
    - Use the closest style note to draft the first version.
    - Preserve facts and mark missing information with `[待补充]`.
+   - After generating the first draft, explicitly remind the user to save a copy into the matching `AI初稿` folder before making manual edits.
 
 4. **Run the official-material pass**
    - Use `drafting-official-materials`.
@@ -97,6 +100,7 @@ Same number means the two files belong to the same writing task. These paired fi
 
 5. **Learn from the user's edit**
    - When the user edits the output, compare AI draft vs user version with `learning-personal-writing-style`.
+   - Prefer file-path based comparison when possible, such as `年度工作总结 / AI初稿 / 002-季度工作总结-AI生成稿.docx` and `年度工作总结 / 我修改后的版本 / 002-季度工作总结-我修改后.docx`.
    - Add durable revision rules only when the edit reveals a repeatable preference.
 
 ## Input Contract
@@ -114,7 +118,7 @@ Before drafting, collect:
 不能写的内容：
 ```
 
-If the user cannot provide all fields, continue with placeholders unless the missing field blocks the document type.
+If the user cannot provide all fields, continue with placeholders unless the missing field blocks the document type. If the user does not know the material type or style note, provide 2-3 choices and let them pick.
 
 ## Output Contract
 
