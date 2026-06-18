@@ -14,8 +14,6 @@ Build a reusable writing workflow for Chinese official materials by combining tw
 
 This is not model fine-tuning. It is a local skill workflow based on samples, style profiles, revision rules, and official-material writing patterns.
 
-This public package bundles the two required sub-skills under `skills/` so a reader can install the whole workflow from one repository.
-
 ## When To Use
 
 Use this skill for:
@@ -29,12 +27,12 @@ Do not use this skill to imitate third-party authors without permission, fabrica
 
 ## Required Sub-Skills
 
-Load these only when the task reaches the matching stage. If the user's AI tool does not install sub-skills automatically, read the bundled files directly from this repository:
+Load these only when the task reaches the matching stage:
 
-| Stage | Required skill | Bundled path | Purpose |
-|-|-|-|-|
-| Train or update style | `learning-personal-writing-style` | `skills/learning-personal-writing-style/SKILL.md` | Extract reusable style rules from user-owned samples and edits |
-| Draft or revise official materials | `drafting-official-materials` | `skills/drafting-official-materials/SKILL.md` | Identify document type, structure the material, and check official tone/format |
+| Stage | Required skill | Purpose |
+|-|-|-|
+| Train or update style | `learning-personal-writing-style` | Extract reusable style rules from user-owned samples and edits |
+| Draft or revise official materials | `drafting-official-materials` | Identify document type, structure the material, and check official tone/format |
 
 ## Recommended Project Folder
 
@@ -83,6 +81,9 @@ Same number means the files belong to the same writing task. The `AI规范修订
    - When grouped files exist, compare `AI原始初稿` against `AI规范修订稿` to summarize official-material fixes; compare `AI规范修订稿` against `我最终修改稿` to summarize personal style preferences.
 
 2. **Train style by scenario**
+   - If the user only says something like `请使用 personal-official-writing-workflow，帮我训练一个写作场景的个人风格。`, do not ask them to write a full prompt. Guide them step by step.
+   - Ask only for missing items: material type, completed-sample folder path or pasted samples, whether grouped draft records exist, paths for `AI原始初稿` / `AI规范修订稿` / `我最终修改稿` if available, and whether to create a new style note or update an existing one.
+   - If the material type or folder path already implies the scenario, infer it and ask for confirmation instead of asking the user to restate it.
    - Use `learning-personal-writing-style`.
    - Build one style note per scenario when possible: communications, summaries/reports, speeches, research reports, notices.
    - Output beginner-facing files such as `通讯稿风格说明.md`, forbidden patterns, reusable outlines, and confidence.
