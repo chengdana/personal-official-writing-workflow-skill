@@ -23,6 +23,10 @@ D盘 / 程大拿写作
 AI原始初稿
 AI规范修订稿
 我最终修改稿
+
+注意：
+AI规范修订稿文件夹里的稿件用于留痕，不直接修改。
+真正给用户修改的是材料类型文件夹根目录下的 AI规范修订稿（拟定）工作副本。
 ```
 
 ## 2. Train A Starter Style Profile
@@ -100,6 +104,7 @@ After the user provides enough information:
 请按两个阶段执行：
 1. 先按我的个人风格写AI原始初稿，并保存到AI原始初稿文件夹。
 2. 再自动调用或执行公文规范检查，形成AI规范修订稿，并保存到AI规范修订稿文件夹。
+3. 再复制一份AI规范修订稿（拟定）到材料类型文件夹根目录，作为我真正修改的工作副本。
 
 如果无法自动调用 drafting-official-materials 子 Skill，请直接按公文规范检查规则继续处理，不要停在AI原始初稿。
 ```
@@ -109,13 +114,18 @@ After the user provides enough information:
 ```text
 请使用 personal-official-writing-workflow，帮我更新写作风格。
 
+我已经把拟定稿修改完成，并确认已定稿。
+
 AI原始初稿：
 {路径或文本}
 
 AI规范修订稿：
 {路径或文本}
 
-这是我最终修改稿：
+AI规范修订稿（拟定）：
+{路径或文本}
+
+请先将这份拟定稿归档为我最终修改稿：
 {路径或文本}
 
 请先区分公文规范修订和个人修改偏好。
