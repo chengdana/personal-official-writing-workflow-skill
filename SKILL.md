@@ -86,8 +86,9 @@ Same number means the two files belong to the same writing task. These paired fi
    - Output beginner-facing files such as `通讯稿风格说明.md`, forbidden patterns, reusable outlines, and confidence.
 
 3. **Draft from a real writing request**
-   - Ask for the writing goal, document type if known, recipient/reader, source facts, must-keep wording, length, and deadline.
-   - If the user is unsure about the document type or style note, do not require exact file names. Present a short choice list, infer the closest material type from the task, and ask the user to confirm.
+   - If the user only says something like `请使用 personal-official-writing-workflow 帮我写一份材料。`, do not draft immediately. Ask them for six items: material type, use scenario, rough framework and must-keep facts, reference material path or pasted content, target length, and forbidden content.
+   - Provide simple examples for each item, such as `工作总结 / 汇报材料 / 通讯稿 / 通知 / 讲话稿`, `季度工作推进情况总结`, or `不能编造数据`.
+   - If the user is unsure about the document type, present a short choice list, infer the closest material type from the task, and ask the user to confirm.
    - Accept reference material either pasted in chat or provided as a local file/folder path. If the path is provided, read the file before drafting; if the current platform cannot read local paths, ask the user to paste the needed content. If the material is insufficient, ask for the missing facts.
    - Use the closest style note to draft the first version.
    - Preserve facts and mark missing information with `[待补充]`.
@@ -110,15 +111,13 @@ Before drafting, collect:
 ```text
 材料类型：
 使用场景：
-读者/接收对象：
-必须保留的事实：
-参考素材：
-希望接近的个人风格说明：
+大致框架和必须保留的事实：
+参考素材路径或粘贴内容：
 篇幅：
 不能写的内容：
 ```
 
-If the user cannot provide all fields, continue with placeholders unless the missing field blocks the document type. If the user does not know the material type or style note, provide 2-3 choices and let them pick.
+If the user cannot provide all fields, continue with placeholders unless the missing field blocks the document type. Do not require the user to know the style-note filename; infer the closest style note from the material type and available style files.
 
 ## Output Contract
 
