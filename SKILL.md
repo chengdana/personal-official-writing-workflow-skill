@@ -55,30 +55,32 @@ Inside the project folder, create genre folders such as:
 调研报告
 ```
 
-Inside each genre folder, suggest three simple subfolders:
+Inside each genre folder, suggest four simple subfolders:
 
 ```text
 我写过的定稿
-AI初稿
-我修改后的版本
+AI原始初稿
+AI规范修订稿
+我最终修改稿
 ```
 
-For AI draft vs user-edited pairs, ask the user to keep matching sequence numbers or titles:
+For AI draft vs user-edited groups, keep matching sequence numbers or titles:
 
 ```text
-001-支行客户活动通讯稿-AI初稿.docx
-001-支行客户活动通讯稿-我修改后.docx
+001-支行客户活动通讯稿-AI原始初稿.docx
+001-支行客户活动通讯稿-AI规范修订稿.docx
+001-支行客户活动通讯稿-我最终修改稿.docx
 ```
 
-Same number means the two files belong to the same writing task. These paired files are the highest-value training material because they reveal what the user changed, deleted, strengthened, or softened. Keep genres separate. Do not mix a newsletter-style communication, a work summary, a formal report, and a speech into one undifferentiated profile unless the user explicitly wants a rough starter profile.
+Same number means the files belong to the same writing task. The `AI规范修订稿` vs `我最终修改稿` pair is the highest-value training material because it reveals what the user changed after the official-material pass. The `AI原始初稿` vs `AI规范修订稿` pair is mainly for checking what the official-material sub-skill changed, not for personal-style learning. Keep genres separate. Do not mix a newsletter-style communication, a work summary, a formal report, and a speech into one undifferentiated profile unless the user explicitly wants a rough starter profile.
 
 ## Workflow
 
 1. **Set up samples**
    - Ask the user to place their own completed materials into the matching genre folder, then into `我写过的定稿`.
    - Prefer 5-20 samples per genre. With 3-5 samples, mark confidence as starter-level.
-   - Put AI draft vs user-edited pairs into `AI初稿` and `我修改后的版本`, using the same sequence number or title for both files.
-   - When paired files exist, compare the AI draft against the user-edited version before summarizing style.
+   - Put AI-generated and user-edited files into `AI原始初稿`, `AI规范修订稿`, and `我最终修改稿`, using the same sequence number or title for related files.
+   - When grouped files exist, compare `AI原始初稿` against `AI规范修订稿` to summarize official-material fixes; compare `AI规范修订稿` against `我最终修改稿` to summarize personal style preferences.
 
 2. **Train style by scenario**
    - Use `learning-personal-writing-style`.
@@ -92,16 +94,18 @@ Same number means the two files belong to the same writing task. These paired fi
    - Accept reference material either pasted in chat or provided as a local file/folder path. If the path is provided, read the file before drafting; if the current platform cannot read local paths, ask the user to paste the needed content. If the material is insufficient, ask for the missing facts.
    - Use the closest style note to draft the first version.
    - Preserve facts and mark missing information with `[待补充]`.
-   - After generating the first draft, explicitly remind the user to save a copy into the matching `AI初稿` folder before making manual edits.
+   - If the current AI tool can write local files, automatically save the first style-based draft into `AI原始初稿` before running the official-material pass. If file writing is unavailable, tell the user exactly what filename to use.
 
 4. **Run the official-material pass**
    - Use `drafting-official-materials`.
    - Confirm whether the draft is a notice, report, request, letter, meeting minutes, speech, work summary, research report, or briefing.
    - Check structure, institutional relationship, policy/fact safety, official tone, headings, and closing formula.
+   - Save the post-check version into `AI规范修订稿`. This is the version the user should manually revise.
 
 5. **Learn from the user's edit**
-   - When the user edits the output, compare AI draft vs user version with `learning-personal-writing-style`.
-   - Prefer file-path based comparison when possible, such as `年度工作总结 / AI初稿 / 002-季度工作总结-AI生成稿.docx` and `年度工作总结 / 我修改后的版本 / 002-季度工作总结-我修改后.docx`.
+   - When the user edits the output, compare the AI official-standard revision vs the user final version with `learning-personal-writing-style`.
+   - Prefer file-path based comparison when possible, such as `年度工作总结 / AI原始初稿 / 002-季度工作总结-AI原始初稿.docx`, `年度工作总结 / AI规范修订稿 / 002-季度工作总结-AI规范修订稿.docx`, and `年度工作总结 / 我最终修改稿 / 002-季度工作总结-我最终修改稿.docx`.
+   - Do not treat all differences between `AI原始初稿` and `我最终修改稿` as personal style. First separate official-format fixes from personal edits. Update personal style notes primarily from the `AI规范修订稿` vs `我最终修改稿` comparison.
    - Add durable revision rules only when the edit reveals a repeatable preference.
 
 ## Input Contract
