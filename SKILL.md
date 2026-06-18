@@ -96,12 +96,14 @@ Same number means the files belong to the same writing task. The `AI规范修订
    - Use the closest style note to draft the first version.
    - Preserve facts and mark missing information with `[待补充]`.
    - If the current AI tool can write local files, automatically save the first style-based draft into `AI原始初稿` before running the official-material pass. If file writing is unavailable, tell the user exactly what filename to use.
+   - Do not stop after the style-based draft. After `AI原始初稿` is produced, immediately continue to the official-material pass as the second internal stage of the same workflow.
 
 4. **Run the official-material pass**
-   - Use `drafting-official-materials`.
+   - Use `drafting-official-materials` automatically after the style-based draft. Do not require the user to trigger this sub-skill manually.
    - Confirm whether the draft is a notice, report, request, letter, meeting minutes, speech, work summary, research report, or briefing.
    - Check structure, institutional relationship, policy/fact safety, official tone, headings, and closing formula.
    - Save the post-check version into `AI规范修订稿`. This is the version the user should manually revise.
+   - If the platform cannot invoke sub-skills automatically, explicitly state that you are continuing with the official-material check and then apply the same rules directly.
 
 5. **Learn from the user's edit**
    - When the user edits the output, compare the AI official-standard revision vs the user final version with `learning-personal-writing-style`.

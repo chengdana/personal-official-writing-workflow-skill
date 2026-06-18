@@ -73,8 +73,16 @@ AI规范修订稿：{路径或文本}
 
 ## 4. Draft A New Material
 
+Starter prompt:
+
 ```text
 请使用 personal-official-writing-workflow 帮我写一份材料。
+```
+
+Assistant follow-up:
+
+```text
+请告诉我以下事项：
 
 材料类型：{通讯稿/工作总结/汇报材料/通知/讲话稿/调研报告}
 使用场景：{说明}
@@ -83,10 +91,17 @@ AI规范修订稿：{路径或文本}
 参考素材：{粘贴素材或文件路径}
 篇幅：{字数}
 不能写的内容：{说明}
+```
 
+After the user provides enough information:
+
+```text
 请自动匹配最接近的材料类型风格说明。
-请先按我的个人风格写AI原始初稿，再按公文规范检查并形成AI规范修订稿。
-如果你可以操作本地文件，请分别保存到对应文件夹。
+请按两个阶段执行：
+1. 先按我的个人风格写AI原始初稿，并保存到AI原始初稿文件夹。
+2. 再自动调用或执行公文规范检查，形成AI规范修订稿，并保存到AI规范修订稿文件夹。
+
+如果无法自动调用 drafting-official-materials 子 Skill，请直接按公文规范检查规则继续处理，不要停在AI原始初稿。
 ```
 
 ## 5. Update After Human Revision
